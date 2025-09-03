@@ -14,12 +14,12 @@ public class MainPage {
         this.driver = driver;
     }
     // Локаторы главной страницы
-    public static final By TOP_ORDER_BUTTON = By.xpath(".//button[contains(text(), 'Заказать')]");
-    public static final By BOTTOM_ORDER_BUTTON = By.xpath("(.//button[contains(text(), 'Заказать')])[2]");
+    private static final By TOP_ORDER_BUTTON = By.xpath(".//button[contains(text(), 'Заказать')]");
+    private static final By BOTTOM_ORDER_BUTTON = By.xpath("(.//button[contains(text(), 'Заказать')])[2]");
 
 
     // Локаторы вопросов
-    public static final String[] QUESTION_LOCATORS = {
+    private static final String[] QUESTION_LOCATORS = {
             "accordion__heading-0",
             "accordion__heading-1",
             "accordion__heading-2",
@@ -31,7 +31,7 @@ public class MainPage {
     };
 
     // Локаторы ответов
-    public static final String[] ANSWER_LOCATORS = {
+    private static final String[] ANSWER_LOCATORS = {
             "accordion__panel-0",
             "accordion__panel-1",
             "accordion__panel-2",
@@ -41,6 +41,13 @@ public class MainPage {
             "accordion__panel-6",
             "accordion__panel-7"
     };
+
+    public By getQuestionLocator(int index) {
+        return By.id(QUESTION_LOCATORS[index]);
+}
+    public By getAnswerLocator(int index){
+        return By.id(ANSWER_LOCATORS[index]);
+    }
 
 
     // нажатие кнопки снизу либо сверху
