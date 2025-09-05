@@ -14,8 +14,8 @@ public class MainPage {
         this.driver = driver;
     }
     // Локаторы главной страницы
-    private static final By TOP_ORDER_BUTTON = By.xpath(".//button[contains(text(), 'Заказать')]");
-    private static final By BOTTOM_ORDER_BUTTON = By.xpath("(.//button[contains(text(), 'Заказать')])[2]");
+    private static final By topOrderButton = By.xpath(".//button[contains(text(), 'Заказать')]");
+    private static final By bottomOrderButton = By.xpath("(.//button[contains(text(), 'Заказать')])[2]");
 
 
     // Локаторы вопросов
@@ -53,9 +53,9 @@ public class MainPage {
     // нажатие кнопки снизу либо сверху
     public void clickOrderButton(boolean fromTop) {
         if (fromTop) {
-            driver.findElement(TOP_ORDER_BUTTON).click();
+            driver.findElement(topOrderButton).click();
         } else {
-            WebElement bottomButton = driver.findElement(BOTTOM_ORDER_BUTTON);
+            WebElement bottomButton = driver.findElement(bottomOrderButton);
             ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", bottomButton);
             bottomButton.click();
         }
